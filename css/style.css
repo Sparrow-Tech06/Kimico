@@ -1,0 +1,23 @@
+body {
+  background: #0D0D0D;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-btn {
+  display: block;
+  padding: 20px;
+  background: #1A1A1A;
+  border-radius: 12px;
+  text-align: center;
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.option {
+  padding: 12px;
+  margin-top: 10px;
+  background: #1A1A1A;
+  border-radius: 8px;
+  cursor: pointer;
+}
