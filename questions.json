@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Which company owns Instagram?",
+    "options": ["Google", "Meta", "Amazon", "Apple"],
+    "answer": "Meta"
+  },
+  {
+    "question": "Who is richest person?",
+    "options": ["Elon Musk", "Bill Gates", "Ambani", "Adani"],
+    "answer": "Elon Musk"
+  }
+]
