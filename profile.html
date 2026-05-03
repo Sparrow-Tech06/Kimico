@@ -1,0 +1,9 @@
+<div class="container text-white">
+  <h3>👤 Profile</h3>
+  <p>Username: Player</p>
+  <p>Coins: <span id="coins"></span></p>
+</div>
+
+<script>
+document.getElementById("coins").innerText = localStorage.getItem("coins") || 0;
+</script>
