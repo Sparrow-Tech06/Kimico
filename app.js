@@ -2,8 +2,6 @@ let currentQuestion;
 
 let coins = 0;
 let streak = 0;
-let xp = 0;
-let level = 1;
 
 let answered = false;
 
@@ -53,7 +51,8 @@ function checkAnswer(button,selected){
 
     coins += 5;
     streak += 1;
-    xp += 10;
+
+    updateProgressBar();
 
     // Every 5 streak call reward function
     if(streak % 5 === 0){
@@ -77,7 +76,7 @@ function checkAnswer(button,selected){
 
   }
 
-  level = Math.floor(xp/100)+1;
+  
 
   updateUI();
 
@@ -89,9 +88,9 @@ function updateUI(){
 
   document.getElementById("streak").innerText = streak;
 
-  document.getElementById("xp").innerText = xp;
+  let progress = (streak % 5) * 20;
 
-  document.getElementById("level").innerText = level;
+  document.getElementById("streakBar").style.width = progress + "%";
 
 }
 
@@ -100,7 +99,9 @@ function getCoin(){
 
   coins += 50;
 
-  alert("🔥 5 Streak Bonus! +50 Coins");
+  navigator.vibrate?.(200);
+
+  console.log("5 streak completed");
 
   updateUI();
 
@@ -133,6 +134,14 @@ function handleSwipe(){
     nextQuestion();
 
   }
+
+}
+
+function updateProgressBar(){
+
+  let progress = (streak % 5) * 20;
+
+  document.getElementById("streakBar").style.width = progress + "%";
 
 }
 
