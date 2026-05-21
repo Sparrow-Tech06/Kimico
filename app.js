@@ -57,6 +57,9 @@ function checkAnswer(button,selected){
     // Every 5 streak call reward function
     if(streak % 5 === 0){
       getCoin();
+
+      // Restart streak after reward
+      streak = 0;
     }
 
   }
@@ -97,6 +100,7 @@ function updateUI(){
 // Reward Function
 function getCoin(){
 
+  // Reward Coins
   coins += 50;
 
   navigator.vibrate?.(200);
