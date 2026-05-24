@@ -6,9 +6,7 @@ let shield = false;
 let answered = false;
 let lastCategory = "";
 
-const rewardPopup = document.createElement('div');
-rewardPopup.classList.add('reward-popup');
-document.body.appendChild(rewardPopup);
+
 
 function renderQuestion(){
 
@@ -156,14 +154,6 @@ function getCoin(){
   updateUI();
 
   navigator.vibrate?.([120,60,120]);
-
-  rewardPopup.style.display = 'block';
-
-  rewardPopup.innerHTML = '🔥 +50 Coins Reward';
-
-  setTimeout(()=>{
-    rewardPopup.style.display = 'none';
-  },1500);
 
 }
 
