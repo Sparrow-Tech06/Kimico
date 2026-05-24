@@ -77,7 +77,7 @@ header {
   text-decoration:none;
 }
 .back-btn:active{ transform:scale(.96); }
-
+.brand { color: var(--brand) ; }
 /******************************************/
 button, a {
   touch-action: manipulation;
