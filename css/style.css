@@ -1,8 +1,9 @@
 
 :root {
+  --card: #fff ;
   --category: linear-gradient(90deg,#f59e0b,#ef4444) ;
   --shadow: none ;
-  --question-border: 2px solid  #;
+  --border: 2px solid #6f4a33 ;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -80,7 +81,7 @@
   position:relative;
   overflow:hidden;
   transition:.35s ease;
-  border: ;
+  border: var(--border) ;
   box-shadow: var(--shadow) ;
 }
 
@@ -105,10 +106,10 @@
 }
 
 .question-text{
-  font-size:34px; border: var(--question-border) ;
+  font-size:34px; border: var(--border) ;
   font-weight:bold; border-radius: 10px ;
   line-height:1.5; text-align: center;
-  margin-bottom:35px;
+  margin-bottom:35px; padding: 35px ;
 }
 
 .option-btn{
@@ -126,8 +127,8 @@
 }
 
 .option-btn:hover{
-  transform:scale(1.03);
-  border-color:#f59e0b;
+  transform:scale(0.96);
+  border-color:#6f4a33 ;
   background:#475569;
 }
 
