@@ -1,36 +1,19 @@
 :root {
+  --category: linear-gradient(90deg,#f59e0b,#ef4444) ;
   --shadow: 0 0 35px rgba(0,0,0,.4) ;
+  --question-border: ;
 }
 /****************************/
 .container{
   max-width:600px;
 }
 
-.title{
-  font-weight:bold;
-  font-size:24px;
-}
-
-.subtitle{
-  color:#94a3b8;
-  margin:0;
-  font-size:14px;
-}
-
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:#020617;
-  padding:18px 10px;
-}
-
 .streak-wrapper{
   position:sticky;
-  top:76px;
+  top:60px;
   z-index:998;
-  background:#020617;
-  padding-bottom:18px;
+  background: ;
+  padding-bottom: ;
 }
 
 .streak-top{
@@ -43,17 +26,17 @@
   display:flex;
   align-items:center;
   gap:12px;
-  font-size:22px;
+  font-size:18px;
   font-weight:bold;
 }
 
-.coin-box{
+/* .coin-box{
   background:#111827;
   padding:12px 18px;
   border-radius:16px;
   font-weight:bold;
   border:1px solid rgba(255,255,255,.05);
-}
+}. */
 
 .shield-box{
   background:#2563eb;
@@ -74,11 +57,11 @@
 }
 
 .custom-progress{
-  height:12px;
+  height:10px;
   border-radius:30px;
   overflow:hidden;
-  background: ;
-  margin-top:15px;
+  background: #e3e3e3;
+  margin-top:12px;
 }
 
 .custom-progress .progress-bar{
@@ -99,7 +82,7 @@
   background: var(--card) ;
   border-radius: 18px;
   padding:28px;
-  min-height:520px;
+  min-height: 440px;
   position:relative;
   overflow:hidden;
   transition:.35s ease;
@@ -110,26 +93,26 @@
 .question-card::before{
   content:'';
   position:absolute;
-  width:250px;
-  height:250px;
+  width: 180px;
+  height: 180px;
   background:rgba(245,158,11,.08);
   border-radius:50%;
-  top:-100px;
-  right:-80px;
+  top:-80px;
+  right:-60px;
 }
 
 .category{
   display:inline-block;
-  background:linear-gradient(90deg,#f59e0b,#ef4444);
-  padding:10px 18px;
+  background:var(--category);
+  padding: 8px 14px;
   border-radius:20px;
   font-weight:bold;
-  margin-bottom:25px;
+  margin-bottom:16px;
 }
 
 .question-text{
-  font-size:34px;
-  font-weight:bold;
+  font-size:34px; border: var(--question-border) ;
+  font-weight:bold; border-radius: 10px ;
   line-height:1.5;
   margin-bottom:35px;
 }
