@@ -36,9 +36,9 @@
 
 .shield-box{
   background:#2563eb;
-  padding: 10px 12px;
+  padding: 6px 8px;
   border-radius: 50% ;
-  font-size:20px;
+  font-size: 12px;
   display:none;
   animation:shieldPulse 1.2s infinite;
 }
