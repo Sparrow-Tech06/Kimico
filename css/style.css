@@ -1,7 +1,14 @@
+
 :root {
   --category: linear-gradient(90deg,#f59e0b,#ef4444) ;
-  --shadow: 0 0 35px rgba(0,0,0,.4) ;
+  --shadow: none ;
   --question-border: ;
+}
+
+@media (prefers-color-scheme: dark) {
+ :root {
+    --shadow: 0 0 35px rgba(0,0,0,.4) ;
+ }
 }
 /****************************/
 .container{
@@ -113,7 +120,7 @@
 .question-text{
   font-size:34px; border: var(--question-border) ;
   font-weight:bold; border-radius: 10px ;
-  line-height:1.5;
+  line-height:1.5; text-align: center;
   margin-bottom:35px;
 }
 
