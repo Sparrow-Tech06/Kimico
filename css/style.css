@@ -1,6 +1,7 @@
 
 :root {
   --card: #fff ;
+  --brand: #6f4a33 ;
   --category: linear-gradient(90deg,#f59e0b,#ef4444) ;
   --shadow: none ;
   --border: 2px solid #6f4a33 ;
@@ -8,6 +9,8 @@
 
 @media (prefers-color-scheme: dark) {
  :root {
+    --card: linear-gradient(180deg,#111827,#1e293b) ;
+    --brand: #6f4a33;
     --shadow: 0 0 35px rgba(0,0,0,.4) ;
  }
 }
