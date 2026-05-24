@@ -5,8 +5,8 @@ function getCoin(amount = 0, source = "Unknown") {
             localStorage.getItem("coins")
         ) || 0;
 
-        // add 50 coins
-        coins += 50;
+        // add 10 coins
+        coins += 10;
 
         // save coins
         localStorage.setItem(
@@ -20,8 +20,8 @@ function getCoin(amount = 0, source = "Unknown") {
         ) || [];
 
         history.push({
-            quiz: "Reward Bonus",
-            reward: 50,
+            quiz: "Game Bonus",
+            reward: 10,
             date: new Date().toLocaleString()
         });
 
