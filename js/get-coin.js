@@ -1,20 +1,37 @@
 function getCoin(amount = 0, source = "Unknown") {
 
-  // total coins
-  let coins = parseInt(localStorage.getItem("myCoins")) || 0;
-  coins += amount;
-  localStorage.setItem("myCoins", coins);
+// get existing coins
+        let coins = parseInt(
+            localStorage.getItem("coins")
+        ) || 0;
 
-  // history
-  let history = JSON.parse(localStorage.getItem("coinHistory")) || [];
+        // add 50 coins
+        coins += 50;
 
-  history.unshift({
-    amount: amount,
-    source: source,
-    date: new Date().toLocaleString()
-  });
+        // save coins
+        localStorage.setItem(
+            "coins",
+            coins
+        );
 
-  localStorage.setItem("coinHistory", JSON.stringify(history));
+        // save history
+        let history = JSON.parse(
+            localStorage.getItem("coinHistory")
+        ) || [];
+
+        history.push({
+            quiz: "Reward Bonus",
+            reward: 50,
+            date: new Date().toLocaleString()
+        });
+
+        localStorage.setItem(
+            "coinHistory",
+            JSON.stringify(history)
+        );
+
+        console.log("50 bonus coins added");
+
 
   // 👉 only notify Android
   if (window.Android && typeof Android.onCoinAdded === "function") {
