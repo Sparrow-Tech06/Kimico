@@ -4,7 +4,7 @@
   --brand: #6f4a33 ;
   --category: linear-gradient(90deg,#f59e0b,#ef4444) ;
   --shadow: none ;
-  --border: 2px solid #6f4a33 ;
+  --border: #6f4a33 ;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -75,7 +75,7 @@
   100%{ box-shadow:0 0 8px #f59e0b; }
 
 }
-
+/*******************************/
 .question-card{
   background: var(--card) ;
   border-radius: 18px;
@@ -84,7 +84,7 @@
   position:relative;
   overflow:hidden;
   transition:.35s ease;
-  border: var(--border) ;
+  border: 2px solid var(--border) ;
   box-shadow: var(--shadow) ;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .question-text{
-  font-size:34px; border: var(--border) ;
+  font-size:34px; border: 2px solid var(--border) ;
   font-weight:bold; border-radius: 10px ;
   line-height:1.5; text-align: center;
   margin-bottom:35px; padding: 35px ;
