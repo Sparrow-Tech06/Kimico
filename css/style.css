@@ -2,7 +2,7 @@
 :root {
   --category: linear-gradient(90deg,#f59e0b,#ef4444) ;
   --shadow: none ;
-  --question-border: 2px solid rgba(255,255,255,0.18) ;
+  --question-border: 2px solid  #;
 }
 
 @media (prefers-color-scheme: dark) {
