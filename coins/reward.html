@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">           
+
+<title>Badges</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<link rel="stylesheet" href="../css/reward.css">
+<link rel="stylesheet" href="../css/global.css">
+    
+</head>
+
+<body>
+
+    <header>
+        <button class="back-btn" role="button" aria-label="Go back" onclick="window.history.back();">
+           <i class="bi bi-arrow-left"></i>
+       </button>
+       <div class="title"> Notification </div>
+  </header>
+
+<div class="grid" id="box"></div>
+
+<!-- POPUP -->
+<div id="badgePopup" class="badge-popup">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+
+    <img id="popupImg" src="">
+    <h4 id="popupName"></h4>
+    <p id="popupStatus"></p>
+  </div>
+</div>
+
+<script src="../js/reward-popup.js"></script>
+<script src="../js/reward-engine.js"></script>
+
+<script>
+
+let coin = parseInt(localStorage.getItem("coins"))||0;
+
+const BADGES = [
+  { name: "Rookie Drop", required: 50, img: "../assets/badges/rookie-drop.png" },
+  { name: "Loot Dropper", required: 100, img: "../assets/badges/loot-dropper.png" },
+  { name: "Sky Scout", required: 130, img: "../assets/badges/sky-scout.png" },
+  { name: "Drop Survivor", required: 150, img: "../assets/badges/drop-survivor.png" },
+  { name: "Airdrop Raider", required: 180, img: "../assets/badges/airdrop-raider.png" },
+  { name: "Storm Diver", required: 220, img: "../assets/badges/storm-diver.png" },
+  { name: "Elite Dropper", required: 260, img: "../assets/badges/elite-dropper.png" },
+  { name: "Sky Dominator", required: 320, img: "../assets/badges/sky-dominator.png" },
+  { name: "Drop Legend", required: 400, img: "../assets/badges/drop-legend.png" },
+  { name: "SkyDrop Immortal", required: 500, img: "../assets/badges/skydrop-immortal.png" }
+];
+
+const box=document.getElementById("box");
+
+BADGES.forEach(b=>{
+ let unlocked=coin>=b.required;
+ let div=document.createElement("div");
+ 
+ // Dynamic class assignment
+ div.className = `card ${unlocked ? "unlocked unlocked-border" : "locked"}`;
+
+ div.innerHTML=`
+ <div class="status-icon">
+    <i class="bi ${unlocked ? 'bi-patch-check-fill' : 'bi-lock-fill'}"></i>
+ </div>
+ <img src="${b.img}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1175/1175571.png'">
+ <div class="name">${b.name}</div>
+ <div class="req">${unlocked ? 'Achievement Unlocked' : b.required + ' Coins Needed'}</div>
+ <div class="status-label">${unlocked ? 'Unlocked' : 'Locked'}</div>
+ `;
+
+ /* CLICK EVENT */
+div.onclick = () => openPopup(b, unlocked);
+    
+ box.appendChild(div);
+});
+
+/* ---------- POPUP ---------- */
+function openPopup(badge, unlocked){
+  document.getElementById("popupImg").src = badge.img;
+  document.getElementById("popupName").innerText = badge.name;
+
+  document.getElementById("popupStatus").innerText =
+    unlocked
+      ? "🎉 You have unlocked this badge!"
+      : `${badge.required} coins required to unlock`;
+
+  document.getElementById("badgePopup").classList.add("active");
+}
+
+function closePopup(){
+  document.getElementById("badgePopup").classList.remove("active");
+}
+
+/* CLOSE ON OUTSIDE CLICK */
+document.getElementById("badgePopup").addEventListener("click",function(e){
+  if(e.target === this) closePopup();
+});
+    
+</script>
+
+</body>
+</html>
