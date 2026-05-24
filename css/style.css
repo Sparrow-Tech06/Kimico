@@ -4,7 +4,7 @@
   --brand: #6f4a33 ;
   --category: linear-gradient(90deg,#f59e0b,#ef4444) ;
   --shadow: none ;
-  --border: #6f4a33 ;
+  --quiz-border: #6f4a33 ;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,12 +79,12 @@
 .question-card{
   background: var(--card) ;
   border-radius: 18px;
-  padding:28px 20px;
+  padding:26px 18px;
   min-height: 440px;
   position:relative;
   overflow:hidden;
   transition:.35s ease;
-  border: 3px solid var(--border) ;
+  border: 3px solid var(--quiz-border) ;
   box-shadow: var(--shadow) ;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .question-text{
-  font-size:28px; border: 2px solid var(--border) ;
+  font-size:28px; border: 2px solid var(--quiz-border) ;
   font-weight:bold; border-radius: 10px ;
   line-height:1.5; text-align: center;
   margin-bottom:35px; padding: 35px ;
