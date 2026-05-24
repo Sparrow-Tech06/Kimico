@@ -20,7 +20,11 @@
       <h2 class="title">🧠 Brain Challenge</h2>
       <p class="subtitle">Unlimited Auto Questions</p>
     </div>
-
+     <!-- Coins -->
+    <a href="js/wallet.html" class="coin-btn d-flex align-items-center">
+      <i class="bi bi-coin"></i>
+      <span id="coinDisplay"></span>
+    </a>
   </div>
 
   <!-- Sticky Streak Bar -->
@@ -66,6 +70,11 @@
 <script src="generators.js"></script>
 <script src="app.js"></script>
 <script src="js/get-coin.js"></script>
+
+<script>
+    const coin = parseInt(localStorage.getItem("coins")) || 0;
+    document.getElementById("coinDisplay").innerText = coin + " Coins";
+</script>
   
 </body>
 </html>
