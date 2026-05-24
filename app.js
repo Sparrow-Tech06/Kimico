@@ -2,32 +2,54 @@ let currentQuestion;
 
 let coins = 0;
 let streak = 0;
-
+let shield = false;
 let answered = false;
+let lastCategory = "";
+
+const rewardPopup = document.createElement('div');
+rewardPopup.classList.add('reward-popup');
+document.body.appendChild(rewardPopup);
 
 function renderQuestion(){
 
   answered = false;
 
-  currentQuestion = generateQuestion();
+  do{
+    currentQuestion = generateQuestion();
+  }
+  while(currentQuestion.category === lastCategory);
 
-  document.getElementById("category").innerText = currentQuestion.category;
+  lastCategory = currentQuestion.category;
 
-  document.getElementById("question").innerText = currentQuestion.question;
+  const card = document.querySelector('.question-card');
 
-  let optionsDiv = document.getElementById("options");
+  // Random Golden Question
+  let golden = Math.random() < 0.08;
 
-  optionsDiv.innerHTML = "";
+  if(golden){
+    card.classList.add('golden-question');
+  }
+  else{
+    card.classList.remove('golden-question');
+  }
+
+  document.getElementById('category').innerText = currentQuestion.category;
+
+  document.getElementById('question').innerText = currentQuestion.question;
+
+  const optionsDiv = document.getElementById('options');
+
+  optionsDiv.innerHTML = '';
 
   currentQuestion.options.forEach(option=>{
 
-    let btn = document.createElement("button");
+    let btn = document.createElement('button');
 
-    btn.classList.add("option-btn");
+    btn.classList.add('option-btn');
 
     btn.innerText = option;
 
-    btn.onclick = ()=>checkAnswer(btn,option);
+    btn.onclick = ()=>checkAnswer(btn,option,golden);
 
     optionsDiv.appendChild(btn);
 
@@ -35,117 +57,113 @@ function renderQuestion(){
 
 }
 
-function checkAnswer(button,selected){
+function checkAnswer(button,selected,golden){
 
   if(answered) return;
 
   answered = true;
 
-  let buttons = document.querySelectorAll(".option-btn");
+  const buttons = document.querySelectorAll('.option-btn');
 
   buttons.forEach(btn=>btn.disabled=true);
 
   if(selected == currentQuestion.answer){
 
-    button.classList.add("correct");
+    button.classList.add('correct');
 
-    coins += 5;
-    streak += 1;
+    navigator.vibrate?.(60);
 
-    updateProgressBar();
+    streak++;
 
-    // Every 5 streak call reward function
-    if(streak % 5 === 0){
+    coins += golden ? 25 : 5;
+
+    // Shield Unlock
+    if(streak === 3 && !shield){
+
+      shield = true;
+
+      document.getElementById('shieldBox').style.display = 'block';
+
+    }
+
+    // 5 Streak Reward
+    if(streak >= 5){
+
       getCoin();
 
-      // Restart streak after reward
       streak = 0;
+
+      shield = false;
+
+      document.getElementById('shieldBox').style.display = 'none';
+
     }
 
   }
   else{
 
-    button.classList.add("wrong");
+    button.classList.add('wrong');
 
-    streak = 0;
+    navigator.vibrate?.([100,50,100]);
+
+    if(shield){
+
+      shield = false;
+
+      document.getElementById('shieldBox').style.display = 'none';
+
+    }
+    else{
+
+      streak = 0;
+
+    }
 
     buttons.forEach(btn=>{
 
       if(btn.innerText == currentQuestion.answer){
-        btn.classList.add("correct");
+        btn.classList.add('correct');
       }
 
     });
 
   }
 
-  
-
   updateUI();
+
+  setTimeout(()=>{
+    nextQuestion();
+  },650);
 
 }
 
 function updateUI(){
 
-  document.getElementById("coins").innerText = coins;
+  document.getElementById('coins').innerText = coins;
 
-  document.getElementById("streak").innerText = streak;
+  document.getElementById('streak').innerText = streak;
 
-  let progress = (streak % 5) * 20;
+  const progress = (streak / 5) * 100;
 
-  document.getElementById("streakBar").style.width = progress + "%";
+  document.getElementById('streakBar').style.width = progress + '%';
 
 }
 
-// Reward Function
 function getCoin(){
 
-  // Reward Coins
   coins += 50;
-
-  navigator.vibrate?.(200);
-
-  console.log("5 streak completed");
 
   updateUI();
 
-}
+  navigator.vibrate?.([120,60,120]);
 
-// Swipe Feature
-let touchStartY = 0;
-let touchEndY = 0;
+  rewardPopup.style.display = 'block';
 
-const card = document.querySelector('.question-card');
+  rewardPopup.innerHTML = '🔥 +50 Coins Reward';
 
-card.addEventListener('touchstart',e=>{
-  touchStartY = e.changedTouches[0].screenY;
-});
-
-card.addEventListener('touchend',e=>{
-
-  touchEndY = e.changedTouches[0].screenY;
-
-  handleSwipe();
-
-});
-
-function handleSwipe(){
-
-  let difference = touchStartY - touchEndY;
-
-  if(Math.abs(difference) > 70){
-
-    nextQuestion();
-
-  }
-
-}
-
-function updateProgressBar(){
-
-  let progress = (streak % 5) * 20;
-
-  document.getElementById("streakBar").style.width = progress + "%";
+  setTimeout(()=>{
+    rewardPopup.style.display = 'none';
+  },1500);
 
 }
 
@@ -153,16 +171,21 @@ function nextQuestion(){
 
   const card = document.querySelector('.question-card');
 
-  card.style.transform = 'translateY(-40px)';
+  card.style.transform = 'translateY(-80px) scale(.94)';
   card.style.opacity = '0';
 
   setTimeout(()=>{
 
     renderQuestion();
 
-    card.style.transition = '.3s';
-    card.style.transform = 'translateY(0px)';
-    card.style.opacity = '1';
+    card.style.transform = 'translateY(80px) scale(.94)';
+
+    setTimeout(()=>{
+
+      card.style.transform = 'translateY(0px) scale(1)';
+      card.style.opacity = '1';
+
+    },50);
 
   },250);
 
