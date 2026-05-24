@@ -1,0 +1,67 @@
+body{
+    background: linear-gradient(135deg,#0f172a,#111827,#1e293b);
+    min-height:100vh;
+    color:white;
+    font-family:Arial;
+}
+
+.main-title{
+    font-size:3rem;
+    font-weight:bold;
+}
+
+.sub-title{
+    color:#cbd5e1;
+}
+
+.formula-card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    padding:25px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+    backdrop-filter:blur(10px);
+    height:100%;
+}
+
+.formula-card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 0 25px rgba(0,255,255,0.3);
+}
+
+.topic-image{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.formula-box{
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:25px;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.formula-image{
+    width:120px;
+    margin-bottom:15px;
+}
+
+.formula-text{
+    font-size:1.4rem;
+    font-weight:bold;
+    color:#22d3ee;
+}
+
+.description{
+    color:#cbd5e1;
+    margin-top:10px;
+}
+
+.back-btn{
+    border-radius:12px;
+}
