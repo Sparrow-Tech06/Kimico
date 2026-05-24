@@ -16,11 +16,7 @@
 }
 
 .streak-wrapper{
-  position:sticky;
-  top:60px;
-  z-index:998;
-  background: ;
-  padding-bottom: ;
+  
 }
 
 .streak-top{
@@ -32,7 +28,7 @@
 .streak-left{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:1px;
   font-size:18px;
   font-weight:bold;
 }
@@ -214,18 +210,6 @@
 
   100%{
     box-shadow:0 0 10px gold;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .question-text{
-    font-size:26px;
-  }
-
-  .option-btn{
-    font-size:18px;
   }
 
 }
