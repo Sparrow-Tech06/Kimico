@@ -1,10 +1,9 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');         
 
 :root {
   /* --font-main: system-ui, -apple-system, Roboto, Arial, sans-serif; */  /*  THIS IS FOR SYSTEM FONTS */
-  --font-main:"Saira", sans-serif;
-  
+  --font-main: "Google Sans", sans-serif;
   --body-bg:#ffffff;
   --header: #FFF ;
   --border:#eeeeee;
@@ -46,6 +45,7 @@
 
 body {
   font-family: var(--font-main);
+  font-optical-sizing: auto;
   color: var(--text);
   animation: pageOpen 0.4s ease-out;
   background: var(--body-bg) ;
