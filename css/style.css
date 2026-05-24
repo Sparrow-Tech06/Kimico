@@ -1,4 +1,7 @@
-
+:root {
+  --shadow: 0 0 35px rgba(0,0,0,.4) ;
+}
+/****************************/
 .container{
   max-width:600px;
 }
@@ -54,9 +57,9 @@
 
 .shield-box{
   background:#2563eb;
-  padding:7px 14px;
-  border-radius:14px;
-  font-size:14px;
+  padding: 10px 14px;
+  border-radius: 50% ;
+  font-size:16px;
   display:none;
   animation:shieldPulse 1.2s infinite;
   box-shadow:0 0 15px rgba(37,99,235,.5);
@@ -64,25 +67,17 @@
 
 @keyframes shieldPulse{
 
-  0%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.08);
-  }
-
-  100%{
-    transform:scale(1);
-  }
+  0%{ transform:scale(1); }
+  50%{ transform:scale(1.08); }
+  100%{ transform:scale(1); }
 
 }
 
 .custom-progress{
-  height:16px;
+  height:12px;
   border-radius:30px;
   overflow:hidden;
-  background:#111827;
+  background: ;
   margin-top:15px;
 }
 
@@ -94,30 +89,22 @@
 
 @keyframes glow{
 
-  0%{
-    box-shadow:0 0 8px #f59e0b;
-  }
-
-  50%{
-    box-shadow:0 0 20px #ef4444;
-  }
-
-  100%{
-    box-shadow:0 0 8px #f59e0b;
-  }
+  0%{ box-shadow:0 0 8px #f59e0b; }
+  50%{ box-shadow:0 0 20px #ef4444; }
+  100%{ box-shadow:0 0 8px #f59e0b; }
 
 }
 
 .question-card{
   background: var(--card) ;
-  border-radius:32px;
+  border-radius: 18px;
   padding:28px;
   min-height:520px;
   position:relative;
   overflow:hidden;
   transition:.35s ease;
-  border:1px solid rgba(255,255,255,.05);
-  box-shadow:0 0 35px rgba(0,0,0,.4);
+  border: ;
+  box-shadow: var(--shadow) ;
 }
 
 .question-card::before{
