@@ -41,7 +41,7 @@
   background:#2563eb;
   padding: 6px 8px;
   border-radius: 50% ;
-  font-size: 12px;
+  font-size: 14px;
   display:none;
   animation:shieldPulse 1.2s infinite;
 }
@@ -59,7 +59,7 @@
   border-radius:30px;
   overflow:hidden;
   background: #e3e3e3;
-  margin-top:12px;
+  margin-top:8px;
 }
 
 .custom-progress .progress-bar{
@@ -79,8 +79,8 @@
 .question-card{
   background: var(--card) ;
   border-radius: 18px;
-  padding:26px 18px;
-  min-height: 440px;
+  padding:22px 18px;
+  min-height: 420px;
   position:relative;
   overflow:hidden;
   transition:.35s ease;
@@ -105,14 +105,14 @@
   padding: 8px 14px;
   border-radius:20px;
   font-weight:bold;
-  margin-bottom:16px;
+  margin-bottom:10px;
 }
 
 .question-text{
-  font-size:28px; border: 1.5px solid var(--quiz-border) ;
+  font-size:26px; border: 1.5px solid var(--quiz-border) ;
   font-weight:bold; border-radius: 10px ;
   line-height:1.5; text-align: center;
-  margin-bottom:35px; padding: 35px ;
+  margin-bottom: 28px; padding: 35px ;
 }
 
 .option-btn{
@@ -120,9 +120,9 @@
   border:none;
   background:#334155;
   color:white;
-  padding:20px;
+  padding: 16px;
   border-radius:22px;
-  margin-bottom:18px;
+  margin-bottom:16px;
   font-size:18px;
   font-weight:bold;
   transition:.25s;
