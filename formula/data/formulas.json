@@ -1,0 +1,58 @@
+{
+  "triangle": [
+    {
+      "name": "Triangle Area",
+      "formula": "1/2 × base × height",
+      "description": "Used to calculate area of triangle.",
+      "image": "assets/images/triangle.png"
+    },
+    {
+      "name": "Pythagoras Theorem",
+      "formula": "a² + b² = c²",
+      "description": "Used in right angle triangle.",
+      "image": "assets/images/triangle.png"
+    }
+  ],
+
+  "circle": [
+    {
+      "name": "Circle Area",
+      "formula": "πr²",
+      "description": "Area of circle formula.",
+      "image": "assets/images/circle.png"
+    },
+    {
+      "name": "Circumference",
+      "formula": "2πr",
+      "description": "Boundary length of circle.",
+      "image": "assets/images/circle.png"
+    }
+  ],
+
+  "square": [
+    {
+      "name": "Square Area",
+      "formula": "side × side",
+      "description": "Area of square.",
+      "image": "assets/images/square.png"
+    }
+  ],
+
+  "algebra": [
+    {
+      "name": "Identity",
+      "formula": "(a+b)² = a² + 2ab + b²",
+      "description": "Basic algebraic identity.",
+      "image": "assets/images/algebra.png"
+    }
+  ],
+
+  "trigonometry": [
+    {
+      "name": "Sin Formula",
+      "formula": "sinθ = perpendicular/hypotenuse",
+      "description": "Basic trigonometry formula.",
+      "image": "assets/images/trigonometry.png"
+    }
+  ]
+}
