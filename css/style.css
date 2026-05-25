@@ -166,55 +166,6 @@
 
 }
 
-/*
-.reward-popup{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:linear-gradient(90deg,#f59e0b,#ef4444);
-  padding:25px 35px;
-  border-radius:25px;
-  font-size:26px;
-  font-weight:bold;
-  z-index:9999;
-  display:none;
-  animation:popup .4s ease;
-}
-
-@keyframes popup{
-
-  0%{
-    transform:translate(-50%,-50%) scale(.5);
-    opacity:0;
-  }
-
-  100%{
-    transform:translate(-50%,-50%) scale(1);
-    opacity:1;
-  }
-
-}
-
-.golden-question{
-  animation:golden 1s infinite;
-}
-
-@keyframes golden{
-
-  0%{
-    box-shadow:0 0 10px gold;
-  }
-
-  50%{
-    box-shadow:0 0 35px orange;
-  }
-
-  100%{
-    box-shadow:0 0 10px gold;
-  }
-
-}. */
 /**************** Bottom Navbar *****************/
 
     .bottom-nav{
@@ -224,7 +175,7 @@
       transform:translateX(-50%);
       width:92%;
       z-index:1000;
-      background:rgba(246,247,248);
+      background: var(--card) ;
     /*  backdrop-filter:blur(12px);  */
       border-radius:32px;
       padding:10px 10px;
