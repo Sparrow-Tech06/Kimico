@@ -249,12 +249,12 @@
     .nav-item-custom i{
       font-size:22px;
       display:block;
-      margin-bottom:2px;
+      margin-bottom: 0px;
     }
 
     .nav-item-custom span{
       font-size:12px;
-      font-weight:600;
+      font-weight:600; margin-bottom: 2px;
     }
 
     /* Active Item */
