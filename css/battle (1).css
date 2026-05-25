@@ -1,0 +1,272 @@
+:root{
+    --yellow:#ffcc00;
+    --orange:#ff7a00;
+    --blue:#1e90ff;
+    --card: #fff ;
+    --accent: #ff6a00 ;
+}
+/******************************/
+
+/* MAIN */
+.main{
+    padding:20px 14px 110px;
+    max-width:700px;
+    margin:auto;
+}
+
+/* PLAYER */
+
+.vs-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.player{
+    width:38%;
+    text-align:center;
+}
+.avatar{
+    width: 70px;
+    height: 70px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--accent);
+}
+
+.name{
+    margin-top: 8px;
+    font-size:22px;
+    font-weight:900;
+}
+
+.score{
+    color:#aaa;
+    font-weight:700;
+}
+
+.vs{
+    font-size:40px;
+    font-weight:900;
+    color:var(--yellow);
+}
+
+/* BATTLE BAR */
+
+.battle-bar{
+    display:flex;
+    align-items:center;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.you-bar{
+    height:6px;
+    background:var(--orange);
+    width:50%;
+    border-radius:30px;
+}
+
+.bot-bar{
+    height:6px;
+    background:var(--blue);
+    width:50%;
+    border-radius:30px;
+}
+
+.cross{
+    width: 56px;
+    height:48px;
+    border-radius:50%;
+    background:#111;
+    border:3px solid var(--orange);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 10px;
+    font-size:18px;
+}
+
+/* TIMER */
+
+.timer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.timer{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    font-weight:900;
+    border:3px solid #222;
+}
+
+.sound-btn{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+/* QUIZ CARD */
+
+.quiz-card{
+    background:var(--card) ;
+    border-radius:14px;
+    border:1.4px solid var(--accent);
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    padding:22px;
+}
+
+.q-count{
+    color: var(--text) ;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.question{
+    font-size:28px;
+    line-height:1.4;
+    font-weight:900;
+    text-align:center;
+    margin-bottom:28px;
+}
+
+/* OPTIONS */
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.option{
+    background: ;
+    border:none;
+    color: var(--orange);
+    min-height:120px;
+    border-radius:20px;
+    padding:14px;
+    font-size:19px;
+    font-weight:700;
+    transition:.2s;
+}
+
+.option:hover{
+    transform:scale(0.98);
+}
+
+.option.correct{
+    background:#16a34a;
+}
+
+.option.wrong{
+    background:#dc2626;
+}
+
+/* RESULT */
+
+.result-screen{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:20px;
+    text-align:center;
+}
+
+.result-box{
+    background: ;
+    width:100%;
+    max-width:500px;
+    border-radius:30px;
+    padding:35px 22px;
+}
+
+.result-title{
+    font-size:42px;
+    font-weight:900;
+}
+
+.result-score{
+    margin-top:16px;
+    color:#bbb;
+    font-size:24px;
+}
+
+/* BUTTONS */
+
+.action-btn{
+    width:100%;
+    border:none;
+    border-radius:18px;
+    padding:16px;
+    font-size:18px;
+    font-weight:900;
+    margin-top:14px;
+}
+
+.play-btn{
+    background:var(--yellow);
+    color:#000;
+}
+
+.home-btn{
+    background:#1f2937;
+    color:#fff;
+}
+
+/* LOADER */
+
+.loader-screen,
+.start-screen{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.loader{
+    width:55px;
+    height:55px;
+    border:5px solid #333;
+    border-top:5px solid var(--yellow);
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+.count{
+    font-size:95px;
+    font-weight:900;
+    color:var(--yellow);
+    text-shadow:0 0 25px rgba(255,204,0,.5);
+}
+
+.bot-type{
+    margin-top:18px;
+    font-size:20px;
+    color:#aaa;
+}
+
+
