@@ -34,7 +34,7 @@
      </div>
 
 <div>
-<h2 class="balance-number">1,250</h2>
+<h2 class="balance-number" id="coinDisplay"> 0 </h2>
 <p class="balance-text">Level Progress</p>
 </div>
 
@@ -105,6 +105,11 @@ cards.innerHTML += `
 
 });
 
+</script>
+
+<script>
+    const coin = parseInt(localStorage.getItem("coins")) || 0;
+    document.getElementById("coinDisplay").innerText = coin + " Coins";
 </script>
 
 </body>
