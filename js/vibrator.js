@@ -1,7 +1,12 @@
+/* Haptic Feedback */
 document.querySelectorAll('.haptic').forEach(item => {
 
-item.addEventListener('click', () => {
-    navigator.vibrate?.(80);
-});
+    item.addEventListener('click', () => {
+
+        if (navigator.vibrate) {
+            navigator.vibrate(80);
+        }
+
+    });
 
 });
