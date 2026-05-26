@@ -1,5 +1,5 @@
 /* Haptic Feedback */
-document.querySelectorAll('.haptic').forEach(item => {
+document.querySelectorAll('.back-btn').forEach(item => {
 
     item.addEventListener('click', () => {
 
