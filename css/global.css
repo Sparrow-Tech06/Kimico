@@ -11,7 +11,7 @@
   --text: #212529 ;
 
   --backbtnBg: /* #f1f5f9  #F08D39  rgba(255,255,255,0.4) */ #f6f1eb ;
-  --backbtnclr: #000 ;
+  --backbtnclr: #8b5e3c ;
   --backbtnbdr: #8b5e3c ;
 }
 
@@ -69,7 +69,7 @@ header {
   height:38px;
   background: var(--backbtnBg);
   color: var(--backbtnclr);
-  border: 2px solid var(--backbtnbdr) ;
+  border: 0px solid var(--backbtnbdr) ;
   border-radius:10px;
   display:flex;
   align-items:center;
