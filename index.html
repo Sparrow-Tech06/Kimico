@@ -90,7 +90,7 @@ const cards = document.getElementById('cards');
 sections.forEach(item => {
 
 cards.innerHTML += `
-<a href="${item.link}" class="explore-card">
+<a href="${item.link}" class="explore-card app-card">
 
 <div class="card-icon ${item.class}">
 <i class="bi ${item.icon}"></i>
@@ -105,8 +105,16 @@ cards.innerHTML += `
 
 });
 
-</script>
+document.querySelectorAll('.app-card, .back-btn').forEach(item => {
 
+item.addEventListener('click', () => {
+    navigator.vibrate?.(60);
+});
+
+});
+
+</script>
+    
 <script>
     const coin = parseInt(localStorage.getItem("coins")) || 0;
     document.getElementById("coinDisplay").innerText = coin + " Coins";
