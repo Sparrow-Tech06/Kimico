@@ -43,8 +43,8 @@
 
 </div>
 
-<script src="../js/vibrator.js"> </script>
-    
+<script src="../js/vibrator.js"></script>
+
 <script>
 const menuData = [
     { title: "My Activity History", icon: "clock-history", link: "../coins/wallet.html", type: "link" },
@@ -81,24 +81,40 @@ menuData.forEach((item, i) => {
     }
 });
 
+/* Haptic Feedback */
+document.addEventListener("click", function(e){
+
+    const target = e.target.closest(".haptic");
+
+    if(target){
+
+        if(navigator.vibrate){
+            navigator.vibrate(80);
+        }
+
+    }
+
+});
+
 /* Premium scroll animation logic */
 const profileHeader = document.getElementById("profileHeader");
 const profileImg = document.getElementById("profileImg");
 const topbar = document.getElementById("topbar");
 
 window.addEventListener("scroll", () => {
+
     const rect = profileHeader.getBoundingClientRect();
+
     let progress = Math.min(Math.max(-rect.top / 120, 0), 1);
 
-    /* profile image shrink */
     profileImg.style.transform = `scale(${1 - progress * 0.2})`;
 
-    /* sticky header show/hide */
     if (progress > 0.20) {
         topbar.classList.add("show", "active");
     } else {
         topbar.classList.remove("show", "active");
     }
+
 });
 </script>
 
