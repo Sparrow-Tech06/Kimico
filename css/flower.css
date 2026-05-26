@@ -18,8 +18,9 @@ header{
     height:42px;
     border:none;
     border-radius:14px;
-    background:#f6f1eb;
-    color:#8b5e3c;
+    background: var(--backbtnBg);
+    color: var(--backbtnclr);
+    border: 0px solid var(--backbtnbdr) ;
     display:flex;
     align-items:center;
     justify-content:center;
