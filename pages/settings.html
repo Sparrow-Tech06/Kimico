@@ -46,7 +46,6 @@
 <script src="../js/vibrator.js"> </script>
     
 <script>
-/* Updated menu data with specific links */
 const menuData = [
     { title: "My Activity History", icon: "clock-history", link: "../coins/wallet.html", type: "link" },
     { title: "My Rewards", icon: "trophy", link: "../coins/reward.html", type: "link" },
@@ -58,9 +57,9 @@ const menuData = [
 const menuList = document.getElementById("menuList");
 
 menuData.forEach((item, i) => {
+
     const li = document.createElement("li");
 
-    // Yahan href="${item.link}" add kiya gaya hai
     li.innerHTML = `
     <a href="${item.link}" class="menu-item haptic">
         <div class="menu-left">
