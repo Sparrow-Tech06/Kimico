@@ -10,9 +10,9 @@
   --icon-bg: #FFE0C2 ;
   --text: #212529 ;
 
-  --backbtnBg: /* #f1f5f9  #F08D39  rgba(255,255,255,0.4) */ #FFE0C2 ;
+  --backbtnBg: /* #f1f5f9  #F08D39  rgba(255,255,255,0.4) */ #f6f1eb ;
   --backbtnclr: #000 ;
-  --backbtnbdr: #F08D39 ;
+  --backbtnbdr: #8b5e3c ;
 }
 
 @media (prefers-color-scheme: dark) {
