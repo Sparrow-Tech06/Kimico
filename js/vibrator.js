@@ -1,7 +1,7 @@
-document.querySelectorAll('.back-btn, .haptic').forEach(item => {
+document.querySelectorAll('.haptic').forEach(item => {
 
 item.addEventListener('click', () => {
-    navigator.vibrate?.(60);
+    navigator.vibrate?.(80);
 });
 
 });
