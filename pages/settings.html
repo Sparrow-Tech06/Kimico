@@ -43,7 +43,6 @@
 
 </div>
 
-<script src="../js/vibrator.js"></script>
 
 <script>
 const menuData = [
@@ -84,7 +83,7 @@ menuData.forEach((item, i) => {
 /* Haptic Feedback */
 document.addEventListener("click", function(e){
 
-    const target = e.target.closest(".haptic");
+    const target = e.target.closest(".haptic, .back-btn");
 
     if(target){
 
