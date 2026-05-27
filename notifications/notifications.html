@@ -18,8 +18,9 @@
 :root {
   --muted: #6c757d;
   --card: #f6f1eb;
-  --popup: #ffffff;
+  --popup: #8b5e3c;
   --popup-text: #000;
+  --popup-btn-bg: #8b5e3c ;
 }
 
 /* ================= DARK MODE ================= */
@@ -117,6 +118,12 @@
 .popup h5, .popup p {
   color: var(--popup-text);
 }
+.close-notif {
+   background: var(--popup-btn-bg);
+   color: #fff ;
+   margin-top: 12px ;
+}
+  
 </style>
 </head>
 
@@ -140,7 +147,7 @@
   <div class="popup-content shadow">
     <h5 id="popupTitle"></h5>
     <p id="popupContent"></p>
-    <button class="btn btn-primary btn-sm mt-2" onclick="closePopup()">Close</button>
+    <button class="close-notif" onclick="closePopup()">Close</button>
   </div>
 </div>
 
