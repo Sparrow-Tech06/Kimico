@@ -1,6 +1,6 @@
 
 :root {
-  --card: #fff ;
+  --card: #f6f1eb ;
   --brand: #6f4a33 ;
   --category: linear-gradient(135deg,#8b5e3c,#b9855c);
   --shadow: none ;
@@ -38,10 +38,10 @@
 }
 
 .shield-box{
-  background:#2563eb;
-  padding: 6px 8px;
+  background: var(--quiz-border) ;
+  padding: 4px 6px;
   border-radius: 50% ;
-  font-size: 14px;
+  font-size: 16px;
   display:none;
   animation:shieldPulse 1.2s infinite;
 }
@@ -113,6 +113,7 @@
   font-weight:bold; border-radius: 10px ;
   line-height:1.5; text-align: center;
   margin-bottom: 28px; padding: 35px ;
+  background: #fff ;
 }
 
 .option-btn{
