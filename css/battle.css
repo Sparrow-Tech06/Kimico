@@ -51,7 +51,7 @@
     color:var(--yellow);
 }
 
-/* BATTLE BAR */
+/************ BATTLE BAR *************/
 
 .battle-bar{
     display:flex;
@@ -109,7 +109,7 @@
     border:3px solid #222;
 }
 
-/* QUIZ CARD */
+/************* QUIZ CARD ************/
 
 .quiz-card{
     background:var(--card) ;
