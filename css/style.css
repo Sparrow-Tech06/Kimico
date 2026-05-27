@@ -63,7 +63,7 @@
 }
 
 .custom-progress .progress-bar{
-  background:linear-gradient(90deg,#f59e0b,#ef4444);
+  background: var(--category) ;
   transition:.4s ease;
   animation:glow 1.2s infinite;
 }
@@ -102,7 +102,7 @@
 .category{
   display:inline-block;
   background:var(--category);
-  padding: 8px 14px;
+  padding: 6px 14px;
   border-radius:20px;
   font-weight:bold;
   margin-bottom:10px;
