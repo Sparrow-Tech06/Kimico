@@ -4,7 +4,7 @@
   --success:#16a34a;
   --muted:#6b7280;
   --coin-card: #fff ;
-  --card: linear-gradient(135deg,#fff7ed,#fef3c7) ;
+  --card: linear-gradient(135deg,#fff7ed,#f6f1eb) ;
 }
 @media (prefers-color-scheme: dark) {
  :root {
@@ -24,7 +24,7 @@
   background:var(--card);
   border-radius:16px;
   padding:18px;
-  border: 1px solid #f59e0b ;
+  border: 1px solid #8b5e3c ;
 }
 .balance-card h3{
   font-size:28px;
