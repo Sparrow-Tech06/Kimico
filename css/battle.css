@@ -218,7 +218,7 @@
     color:#fff;
 }
 
-/* LOADER */
+/************** LOADER *************/
 
 .loader-screen,
 .start-screen{
@@ -249,7 +249,6 @@
     font-size:95px;
     font-weight:900;
     color:var(--yellow);
-    text-shadow:0 0 25px rgba(255,204,0,.5);
 }
 
 .bot-type{
