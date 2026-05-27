@@ -2,7 +2,7 @@
 :root {
   --card: #fff ;
   --brand: #6f4a33 ;
-  --category: linear-gradient(90deg,#f59e0b,#ef4444) ;
+  --category: linear-gradient(135deg,#8b5e3c,#b9855c);
   --shadow: none ;
   --quiz-border: #6f4a33 ;
 }
