@@ -1,6 +1,6 @@
 
 :root {
-  --card: #f6f1eb ;
+  --card: #fff ;
   --brand: #6f4a33 ;
   --category: linear-gradient(135deg,#8b5e3c,#b9855c);
   --shadow: none ;
@@ -104,7 +104,7 @@
   background:var(--category);
   padding: 6px 14px;
   border-radius:20px;
-  font-weight:bold;
+  color: #fff ;
   margin-bottom:10px;
 }
 
@@ -113,7 +113,7 @@
   font-weight:bold; border-radius: 10px ;
   line-height:1.5; text-align: center;
   margin-bottom: 28px; padding: 35px ;
-  background: #fff ;
+  background: #f6f1eb ;
 }
 
 .option-btn{
