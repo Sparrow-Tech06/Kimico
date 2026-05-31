@@ -208,119 +208,177 @@ header{
     font-size:12px;
 }
 
-/* XP CARD */
+/* ===== XP CARD ===== */
 
 .xp-card{
     margin:20px;
-    border-radius:28px;
-    padding:25px;
+    padding:22px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    gap:18px;
 
-    background:
-    linear-gradient(
+    border-radius:30px;
+
+    background:linear-gradient(
         135deg,
-        #6b4326,
-        #9a6842
+        #5a351f 0%,
+        #8b5e3c 50%,
+        #6a4327 100%
     );
 
-    box-shadow:0 10px 40px rgba(0,0,0,.4);
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+
+    position:relative;
+    overflow:hidden;
 }
 
-.level-box{
-    margin-right:20px;
+.xp-card::before{
+    content:'';
+    position:absolute;
+    top:-50%;
+    left:-30%;
+
+    width:250px;
+    height:250px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    filter:blur(40px);
 }
+
+/* ===== LEVEL BADGE ===== */
 
 .level-badge{
-    width:110px;
-    height:110px;
+
+    width:100px;
+    height:100px;
+
+    flex-shrink:0;
+
     clip-path:polygon(
-      25% 6.7%,75% 6.7%,
-      100% 50%,75% 93.3%,
-      25% 93.3%,0 50%
+        25% 6.7%,
+        75% 6.7%,
+        100% 50%,
+        75% 93.3%,
+        25% 93.3%,
+        0 50%
     );
 
-    background:#4e2d16;
+    background:#4b2c18;
 
-    border:4px solid #d7a66c;
+    border:3px solid #d6a15c;
 
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
+
+    color:white;
 }
 
 .level-badge i{
-    color:#ffd67a;
-    font-size:20px;
+    color:#ffcf74;
+    font-size:18px;
+    margin-bottom:3px;
 }
 
 .level-badge span{
-    font-size:38px;
+    font-size:34px;
     font-weight:700;
 }
+
+/* ===== XP CONTENT ===== */
 
 .xp-content{
     flex:1;
 }
 
 .xp-title{
-    font-size:18px;
-    opacity:.8;
+    font-size:15px;
+    color:rgba(255,255,255,.8);
+    letter-spacing:1px;
+    margin-bottom:4px;
 }
 
 .xp-value{
     font-size:42px;
-    font-weight:700;
-    margin-bottom:15px;
+    font-weight:800;
+    color:white;
+    line-height:1;
+    margin-bottom:16px;
 }
 
-.progress{
-    height:15px;
-    background:rgba(0,0,0,.3);
-    border-radius:30px;
+/* ===== PROGRESS ===== */
+
+.progress-container{
+
+    width:100%;
+    height:14px;
+
+    border-radius:50px;
+
+    background:rgba(0,0,0,.25);
+
+    overflow:hidden;
 }
 
-.progress-bar{
+.progress-fill{
+
     width:0%;
+
     height:100%;
-    border-radius:30px;
-    background:#f0c277;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        #ffd57b,
+        #f7bf57
+    );
+
+    transition:width .5s ease;
 }
+
+/* ===== FOOTER ===== */
 
 .progress-info{
+
     display:flex;
     justify-content:space-between;
+
     margin-top:10px;
-    font-size:14px;
+
+    font-size:13px;
+    color:rgba(255,255,255,.9);
 }
 
-.coin-section{
-    text-align:center;
-    margin-left:25px;
+/* ===== MOBILE ===== */
+
+@media(max-width:576px){
+
+    .xp-card{
+        padding:18px;
+        gap:14px;
+    }
+
+    .level-badge{
+        width:85px;
+        height:85px;
+    }
+
+    .level-badge span{
+        font-size:28px;
+    }
+
+    .xp-value{
+        font-size:32px;
+    }
+
+    .progress-info{
+        font-size:12px;
+    }
 }
 
-.coin-icon{
-    font-size:45px;
-    color:#ffd67a;
-}
-
-.coin-value{
-    font-size:38px;
-    font-weight:700;
-}
-
-.coin-label{
-    font-size:18px;
-}
-
-.coin-btn{
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:18px;
-    margin-top:10px;
-    background:#f0c277;
-    font-size:22px;
-}
