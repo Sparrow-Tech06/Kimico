@@ -99,7 +99,7 @@
   right:-60px;
 }
 
-.category{
+.category-selector {
   display:inline-block;
   background:var(--category);
   padding: 6px 14px;
