@@ -100,8 +100,8 @@ function checkAnswer(button, selected) {
 
     }
 
-    // Reward at 5 streak
-    if (streak >= 5) {
+    // Reward at 10 streak
+    if (streak >= 10) {
 
       getCoin();
 
@@ -172,7 +172,7 @@ function updateUI() {
   ).innerText = streak;
 
   let progress =
-    (streak / 5) * 100;
+    (streak / 10) * 100;
 
   document.getElementById(
     'streakBar'
