@@ -1,76 +1,89 @@
-let selectedCategory = localStorage.getItem("selectedCategory") || "All";
 let currentQuestion;
 let streak = 0;
 let shield = false;
 let answered = false;
 let lastCategory = "";
 
-function renderQuestion(){
+let selectedCategory =
+localStorage.getItem("selectedCategory") || "All";
+
+function renderQuestion() {
 
   answered = false;
 
-  if(selectedCategory === "All"){
+  if (selectedCategory === "All") {
 
-    do{
+    do {
       currentQuestion = generateQuestion();
     }
-    while(currentQuestion.category === lastCategory);
+    while (currentQuestion.category === lastCategory);
 
-  }else{
+  } else {
 
-    currentQuestion =
-      categoryGenerators[selectedCategory]();
+    if (typeof categoryGenerators !== "undefined" &&
+        categoryGenerators[selectedCategory]) {
+
+      currentQuestion =
+        categoryGenerators[selectedCategory]();
+
+    } else {
+
+      currentQuestion = generateQuestion();
+
+    }
 
   }
 
   lastCategory = currentQuestion.category;
 
-  document.getElementById("category").innerText =
+  const card = document.querySelector('.question-card');
+
+  document.getElementById('category').innerText =
     selectedCategory === "All"
       ? "All Categories"
       : selectedCategory;
 
-  document.getElementById("question").innerText =
+  document.getElementById('question').innerText =
     currentQuestion.question;
 
   const optionsDiv =
-    document.getElementById("options");
+    document.getElementById('options');
 
-  optionsDiv.innerHTML = "";
+  optionsDiv.innerHTML = '';
 
-  currentQuestion.options.forEach(option=>{
+  currentQuestion.options.forEach(option => {
 
-    const btn =
-      document.createElement("button");
+    let btn = document.createElement('button');
 
-    btn.classList.add("option-btn");
+    btn.classList.add('option-btn');
 
     btn.innerText = option;
 
-    btn.onclick = ()=>checkAnswer(btn,option);
+    btn.onclick = () =>
+      checkAnswer(btn, option);
 
     optionsDiv.appendChild(btn);
 
   });
 
-  // reset card animation state
   card.style.opacity = '1';
-  card.style.transform = 'translateY(0px) scale(1)';
-
+  card.style.transform =
+    'translateY(0px) scale(1)';
 }
 
-function checkAnswer(button,selected){
+function checkAnswer(button, selected) {
 
-  if(answered) return;
+  if (answered) return;
 
   answered = true;
 
-  const buttons = document.querySelectorAll('.option-btn');
+  const buttons =
+    document.querySelectorAll('.option-btn');
 
-  buttons.forEach(btn=>btn.disabled=true);
+  buttons.forEach(btn => btn.disabled = true);
 
   // CORRECT ANSWER
-  if(selected == currentQuestion.answer){
+  if (selected == currentQuestion.answer) {
 
     button.classList.add('correct');
 
@@ -79,16 +92,18 @@ function checkAnswer(button,selected){
     streak++;
 
     // Unlock shield after 3 streak
-    if(streak >= 3 && !shield){
+    if (streak >= 3 && !shield) {
 
       shield = true;
 
-      document.getElementById('shieldBox').style.display = 'block';
+      document.getElementById(
+        'shieldBox'
+      ).style.display = 'block';
 
     }
 
     // Reward at 5 streak
-    if(streak >= 5){
+    if (streak >= 5) {
 
       getCoin();
 
@@ -96,37 +111,42 @@ function checkAnswer(button,selected){
 
       shield = false;
 
-      document.getElementById('shieldBox').style.display = 'none';
+      document.getElementById(
+        'shieldBox'
+      ).style.display = 'none';
 
     }
 
   }
 
   // WRONG ANSWER
-  else{
+  else {
 
     button.classList.add('wrong');
 
-    navigator.vibrate?.([120,50,120]);
+    navigator.vibrate?.([120, 50, 120]);
 
     // shield protection
-    if(shield){
+    if (shield) {
 
       shield = false;
 
-      document.getElementById('shieldBox').style.display = 'none';
+      document.getElementById(
+        'shieldBox'
+      ).style.display = 'none';
 
     }
-    else{
+    else {
 
       streak = 0;
 
     }
 
     // show correct answer
-    buttons.forEach(btn=>{
+    buttons.forEach(btn => {
 
-      if(btn.innerText == currentQuestion.answer){
+      if (btn.innerText ==
+        currentQuestion.answer) {
 
         btn.classList.add('correct');
 
@@ -139,100 +159,118 @@ function checkAnswer(button,selected){
   updateUI();
 
   // AUTO NEXT QUESTION
-  setTimeout(()=>{
+  setTimeout(() => {
 
     nextQuestion();
 
-  },700);
+  }, 700);
 
 }
 
-function updateUI(){
+function updateUI() {
 
-  document.getElementById('streak').innerText = streak;
+  document.getElementById(
+    'streak'
+  ).innerText = streak;
 
-  let progress = (streak / 5) * 100;
+  let progress =
+    (streak / 5) * 100;
 
-  document.getElementById('streakBar').style.width = progress + '%';
+  document.getElementById(
+    'streakBar'
+  ).style.width = progress + '%';
 
 }
 
-function getCoin(){
+function getCoin() {
 
-  navigator.vibrate?.([150,50,150]);
+  navigator.vibrate?.([150, 50, 150]);
 
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
+function nextQuestion() {
 
-  document.getElementById("category")
-    .innerText =
-      selectedCategory === "All"
-      ? "All Categories"
-      : selectedCategory;
-
-  const modal = new bootstrap.Modal(
-    document.getElementById("categoryModal")
-  );
-
-  document.getElementById("categoryBtn")
-    .addEventListener("click",()=>{
-
-      modal.show();
-
-    });
-
-  document
-    .querySelectorAll(".category-option")
-    .forEach(btn=>{
-
-      btn.addEventListener("click",()=>{
-
-        selectedCategory =
-          btn.dataset.category;
-
-        localStorage.setItem(
-          "selectedCategory",
-          selectedCategory
-        );
-
-        document.getElementById(
-          "category"
-        ).innerText =
-          selectedCategory === "All"
-          ? "All Categories"
-          : selectedCategory;
-
-        modal.hide();
-
-        renderQuestion();
-
-      });
-
-    });
-
-});
-
-function nextQuestion(){
-
-  const card = document.querySelector('.question-card');
+  const card =
+    document.querySelector('.question-card');
 
   // fade out
   card.style.transition = '.28s ease';
   card.style.opacity = '0';
-  card.style.transform = 'translateY(35px) scale(.97)';
+  card.style.transform =
+    'translateY(35px) scale(.97)';
 
-  setTimeout(()=>{
+  setTimeout(() => {
 
     renderQuestion();
 
     // fade in
     card.style.opacity = '1';
-    card.style.transform = 'translateY(0px) scale(1)';
+    card.style.transform =
+      'translateY(0px) scale(1)';
 
-  },280);
+  }, 280);
 
 }
 
-updateUI();
-renderQuestion();
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    const categoryBtn =
+      document.getElementById(
+        "categoryBtn"
+      );
+
+    if (categoryBtn) {
+
+      const modal =
+        new bootstrap.Modal(
+          document.getElementById(
+            "categoryModal"
+          )
+        );
+
+      categoryBtn.addEventListener(
+        "click",
+        () => {
+
+          modal.show();
+
+        }
+      );
+
+      document
+        .querySelectorAll(
+          ".category-option"
+        )
+        .forEach(btn => {
+
+          btn.addEventListener(
+            "click",
+            () => {
+
+              selectedCategory =
+                btn.dataset.category;
+
+              localStorage.setItem(
+                "selectedCategory",
+                selectedCategory
+              );
+
+              modal.hide();
+
+              renderQuestion();
+
+            }
+          );
+
+        });
+
+    }
+
+    updateUI();
+    renderQuestion();
+
+  }
+);
+
