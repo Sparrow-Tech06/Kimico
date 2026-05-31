@@ -116,8 +116,70 @@ item.addEventListener('click', () => {
 </script>
     
 <script>
-    const coin = parseInt(localStorage.getItem("coins")) || 0;
-    document.getElementById("coinDisplay").innerText = coin + " Coins";
+
+async function loadLevelSystem(){
+
+    const coin =
+        parseInt(localStorage.getItem("coins")) || 0;
+
+    const xp =
+        parseInt(localStorage.getItem("xp")) || 0;
+
+    document.getElementById("coinDisplay")
+        .innerText = coin;
+
+    document.getElementById("xpDisplay")
+        .innerText = xp.toLocaleString() + " XP";
+
+    const res =
+        await fetch("data/levels.json");
+
+    const data =
+        await res.json();
+
+    const levels = data.levels;
+
+    let currentLevel = 1;
+    let currentRequired = 0;
+    let nextRequired = 0;
+
+    for(let i=0;i<levels.length;i++){
+
+        if(xp >= levels[i].required){
+
+            currentLevel = levels[i].level;
+            currentRequired = levels[i].required;
+
+            nextRequired =
+                levels[i+1]
+                ? levels[i+1].required
+                : currentRequired + 500;
+        }
+    }
+
+    const progress =
+        ((xp-currentRequired) /
+        (nextRequired-currentRequired))*100;
+
+    document.getElementById("levelNumber")
+        .innerText = currentLevel;
+
+    document.getElementById("currentLevelText")
+        .innerText = "Level " + currentLevel;
+
+    document.getElementById("nextLevelText")
+        .innerText =
+        (nextRequired - xp) +
+        " XP to Level " +
+        (currentLevel+1);
+
+    document.getElementById("xpBar")
+        .style.width =
+        Math.min(progress,100) + "%";
+}
+
+loadLevelSystem();
+
 </script>
 
 </body>
