@@ -1,3 +1,4 @@
+let selectedCategory = localStorage.getItem("selectedCategory") || "All";
 let currentQuestion;
 let streak = 0;
 let shield = false;
@@ -8,28 +9,41 @@ function renderQuestion(){
 
   answered = false;
 
-  do{
-    currentQuestion = generateQuestion();
+  if(selectedCategory === "All"){
+
+    do{
+      currentQuestion = generateQuestion();
+    }
+    while(currentQuestion.category === lastCategory);
+
+  }else{
+
+    currentQuestion =
+      categoryGenerators[selectedCategory]();
+
   }
-  while(currentQuestion.category === lastCategory);
 
   lastCategory = currentQuestion.category;
 
-  const card = document.querySelector('.question-card');
+  document.getElementById("category").innerText =
+    selectedCategory === "All"
+      ? "All Categories"
+      : selectedCategory;
 
-  document.getElementById('category').innerText = currentQuestion.category;
+  document.getElementById("question").innerText =
+    currentQuestion.question;
 
-  document.getElementById('question').innerText = currentQuestion.question;
+  const optionsDiv =
+    document.getElementById("options");
 
-  const optionsDiv = document.getElementById('options');
-
-  optionsDiv.innerHTML = '';
+  optionsDiv.innerHTML = "";
 
   currentQuestion.options.forEach(option=>{
 
-    let btn = document.createElement('button');
+    const btn =
+      document.createElement("button");
 
-    btn.classList.add('option-btn');
+    btn.classList.add("option-btn");
 
     btn.innerText = option;
 
