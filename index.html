@@ -161,65 +161,64 @@ item.addEventListener('click', () => {
     
 <script>
 
-async function loadLevelSystem(){
+async function loadLevelSystem() {
 
-    const coin =
-        parseInt(localStorage.getItem("coins")) || 0;
-
-    const xp =
-        parseInt(localStorage.getItem("xp")) || 0;
-
-    document.getElementById("coinDisplay")
-        .innerText = coin;
+    const coins = parseInt(localStorage.getItem("coins")) || 0;
 
     document.getElementById("xpDisplay")
-        .innerText = xp.toLocaleString() + " XP";
+        .textContent = coins.toLocaleString() + " XP";
 
-    const res =
-        await fetch("data/levels.json");
+    try {
 
-    const data =
-        await res.json();
+        const response = await fetch("data/levels.json");
+        const data = await response.json();
 
-    const levels = data.levels;
+        const levels = data.levels;
 
-    let currentLevel = 1;
-    let currentRequired = 0;
-    let nextRequired = 0;
+        let currentLevel = 1;
+        let currentRequired = 0;
+        let nextRequired = 50;
 
-    for(let i=0;i<levels.length;i++){
+        for (let i = 0; i < levels.length; i++) {
 
-        if(xp >= levels[i].required){
+            if (coins >= levels[i].required) {
 
-            currentLevel = levels[i].level;
-            currentRequired = levels[i].required;
+                currentLevel = levels[i].level;
+                currentRequired = levels[i].required;
 
-            nextRequired =
-                levels[i+1]
-                ? levels[i+1].required
-                : currentRequired + 500;
+                if (levels[i + 1]) {
+                    nextRequired = levels[i + 1].required;
+                } else {
+                    nextRequired = currentRequired + 500;
+                }
+            }
         }
+
+        const progress =
+            ((coins - currentRequired) /
+            (nextRequired - currentRequired)) * 100;
+
+        document.getElementById("levelNumber")
+            .textContent = currentLevel;
+
+        document.getElementById("currentLevelText")
+            .textContent = "Level " + currentLevel;
+
+        document.getElementById("nextLevelText")
+            .textContent =
+            (nextRequired - coins) +
+            " XP to Level " +
+            (currentLevel + 1);
+
+        document.getElementById("xpBar")
+            .style.width =
+            Math.max(0, Math.min(progress, 100)) + "%";
+
+    } catch (error) {
+
+        console.error("Level System Error:", error);
+
     }
-
-    const progress =
-        ((xp-currentRequired) /
-        (nextRequired-currentRequired))*100;
-
-    document.getElementById("levelNumber")
-        .innerText = currentLevel;
-
-    document.getElementById("currentLevelText")
-        .innerText = "Level " + currentLevel;
-
-    document.getElementById("nextLevelText")
-        .innerText =
-        (nextRequired - xp) +
-        " XP to Level " +
-        (currentLevel+1);
-
-    document.getElementById("xpBar")
-        .style.width =
-        Math.min(progress,100) + "%";
 }
 
 loadLevelSystem();
