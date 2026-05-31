@@ -14,72 +14,33 @@
 </head>
 <body>
 
-   <header class="top-header">
-
-    <div class="profile-box">
-        <div class="profile-avatar">
-            <i class="bi bi-person-fill"></i>
-        </div>
-
-        <div>
-            <h2> Qmath </h2>
-            <p>Let's sharpen your math skills today!</p>
-        </div>
-    </div>
-
-    <div class="header-actions">
-
-        <a href="notifications/notifications.html" class="icon-btn">
-            <i class="bi bi-bell"></i>
-            <span class="badge">3</span>
-        </a>
-
-        <a href="pages/settings.html" class="icon-btn">
-            <i class="bi bi-gear"></i>
-        </a>
-
-    </div>
-
-</header>
-
+   <header> 
+       <a href="notifications/notifications.html" class="back-btn" aria-label="Notifications">  <i class="bi bi-bell"></i> </a>              
+       <h1 class="app-name">MathRush</h1>  
+       <a href="pages/settings.html" class="back-btn" aria-label="Settings"> <i class="bi bi-gear"></i> </a>
+ </header>
+    
     <main>
+        
        <section class="xp-card">
 
-    <div class="level-badge">
-        <i class="bi bi-crown-fill"></i>
-        <span id="levelNumber">1</span>
-    </div>
-
-    <div class="xp-content">
-
-        <div class="xp-title">
-            TOTAL XP
+         <div class="level-badge">
+            <i class="bi bi-crown-fill"></i>
+            <span id="levelNumber">1</span>
         </div>
 
-        <div class="xp-value"
-             id="xpDisplay">
-            0 XP
-        </div>
+         <div class="xp-content">
+            <div class="xp-title">  TOTAL XP </div>
+            <div class="xp-value" id="xpDisplay"> 0 XP </div>
 
-        <div class="progress-container">
+            <div class="progress-container">
+               <div class="progress-fill" id="xpBar"> </div>
+           </div>
 
-            <div class="progress-fill"
-                 id="xpBar">
-            </div>
-
-        </div>
-
-        <div class="progress-info">
-
-            <span id="currentLevelText">
-                Level 1
-            </span>
-
-            <span id="nextLevelText">
-                Loading...
-            </span>
-
-        </div>
+           <div class="progress-info">
+              <span id="currentLevelText"> Level 1 </span>
+              <span id="nextLevelText"> Loading... </span>
+          </div>
 
     </div>
 
