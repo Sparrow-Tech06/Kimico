@@ -163,6 +163,56 @@ function getCoin(){
 
 }
 
+document.addEventListener("DOMContentLoaded",()=>{
+
+  document.getElementById("category")
+    .innerText =
+      selectedCategory === "All"
+      ? "All Categories"
+      : selectedCategory;
+
+  const modal = new bootstrap.Modal(
+    document.getElementById("categoryModal")
+  );
+
+  document.getElementById("categoryBtn")
+    .addEventListener("click",()=>{
+
+      modal.show();
+
+    });
+
+  document
+    .querySelectorAll(".category-option")
+    .forEach(btn=>{
+
+      btn.addEventListener("click",()=>{
+
+        selectedCategory =
+          btn.dataset.category;
+
+        localStorage.setItem(
+          "selectedCategory",
+          selectedCategory
+        );
+
+        document.getElementById(
+          "category"
+        ).innerText =
+          selectedCategory === "All"
+          ? "All Categories"
+          : selectedCategory;
+
+        modal.hide();
+
+        renderQuestion();
+
+      });
+
+    });
+
+});
+
 function nextQuestion(){
 
   const card = document.querySelector('.question-card');
