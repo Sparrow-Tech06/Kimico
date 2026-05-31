@@ -6,13 +6,13 @@ main{
     padding:18px;
 }
 
-/* header{
+ header{
     display:grid;
     grid-template-columns:48px 1fr 48px;
     align-items:center;
     margin-bottom:22px;
 }
-
+/*
 .app-name{
     text-align:center;
     font-size:22px;
@@ -216,37 +216,9 @@ main{
     display:flex;
     align-items:center;
     gap:18px;
-
     border-radius:30px;
-
-    background:linear-gradient(
-        135deg,
-        #5a351f 0%,
-        #8b5e3c 50%,
-        #6a4327 100%
-    );
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.35);
-
-    position:relative;
+    background:linear-gradient(135deg,#8b5e3c,#b9855c);
     overflow:hidden;
-}
-
-.xp-card::before{
-    content:'';
-    position:absolute;
-    top:-50%;
-    left:-30%;
-
-    width:250px;
-    height:250px;
-
-    background:rgba(255,255,255,.05);
-
-    border-radius:50%;
-
-    filter:blur(40px);
 }
 
 /* ===== LEVEL BADGE ===== */
@@ -255,27 +227,13 @@ main{
 
     width:100px;
     height:100px;
-
     flex-shrink:0;
-
-    clip-path:polygon(
-        25% 6.7%,
-        75% 6.7%,
-        100% 50%,
-        75% 93.3%,
-        25% 93.3%,
-        0 50%
-    );
-
     background:#4b2c18;
-
     border:3px solid #d6a15c;
-
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-
     color:white;
 }
 
@@ -317,68 +275,26 @@ main{
 
     width:100%;
     height:14px;
-
     border-radius:50px;
-
-    background:rgba(0,0,0,.25);
-
+    background: #eee ;
     overflow:hidden;
 }
 
 .progress-fill{
 
     width:0%;
-
     height:100%;
-
     border-radius:50px;
-
-    background:linear-gradient(
-        90deg,
-        #ffd57b,
-        #f7bf57
-    );
-
+    background: red ;
     transition:width .5s ease;
 }
 
 /* ===== FOOTER ===== */
 
 .progress-info{
-
     display:flex;
     justify-content:space-between;
-
     margin-top:10px;
-
     font-size:13px;
     color:rgba(255,255,255,.9);
 }
-
-/* ===== MOBILE ===== */
-
-@media(max-width:576px){
-
-    .xp-card{
-        padding:18px;
-        gap:14px;
-    }
-
-    .level-badge{
-        width:85px;
-        height:85px;
-    }
-
-    .level-badge span{
-        font-size:28px;
-    }
-
-    .xp-value{
-        font-size:32px;
-    }
-
-    .progress-info{
-        font-size:12px;
-    }
-}
-
