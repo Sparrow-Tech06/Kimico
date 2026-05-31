@@ -387,7 +387,7 @@ function generateQuestion(){
   let randomGenerator = generators[random(0,generators.length-1)];
 
   return randomGenerator();
-};
+}
 
 
 const categoryGenerators = {
