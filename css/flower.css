@@ -134,12 +134,7 @@ header{
     font-size:12px;
 }
 
-body{
-    background:#0f0b08;
-    color:#fff;
-}
-
-/* HEADER */
+/************** HEADER ************/
 
 .top-header{
     display:flex;
