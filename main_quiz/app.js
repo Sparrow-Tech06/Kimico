@@ -39,9 +39,7 @@ function renderQuestion() {
   const card = document.querySelector('.question-card');
 
   document.getElementById('category').innerText =
-    selectedCategory === "All"
-      ? "All Categories"
-      : selectedCategory;
+  currentQuestion.category;
 
   document.getElementById('question').innerText =
     currentQuestion.question;
