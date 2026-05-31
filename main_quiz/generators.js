@@ -387,4 +387,25 @@ function generateQuestion(){
   let randomGenerator = generators[random(0,generators.length-1)];
 
   return randomGenerator();
-}
+};
+
+
+const categoryGenerators = {
+
+  "Sequence": generateSequenceQuestion,
+  "Addition": generateBlankQuestion,
+  "Logic Math": generateMultiStep,
+  "Percentage": generatePercentage,
+  "Algebra": generateAlgebra,
+  "Odd/Even": generateOddEven,
+  "Geometry": generateGeometry,
+  "Squares": generateSquare,
+  "Fractions": generateFraction,
+  "Decimals": generateDecimal,
+  "Cubes": generateCube,
+  "Trigonometry": generateTrigonometry,
+  "Circle": generateCircle,
+  "Triangle": generateTriangle,
+  "GK": generateGK
+
+};
