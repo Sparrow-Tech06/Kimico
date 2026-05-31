@@ -168,60 +168,55 @@
 
 }
 
-/**************** Bottom Navbar *****************/
+/============= Modal Size ============/
 
-    .bottom-nav{
-      position:fixed;
-      left:50%;
-      bottom:18px;
-      transform:translateX(-50%);
-      width:92%;
-      z-index:1000;
-      background: var(--card) ;
-    /*  backdrop-filter:blur(12px);  */
-      border-radius:32px;
-      padding:10px 10px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border: 1.5px solid #e3e3e3;
-    }
+#categoryModal .modal-dialog{
+    max-width: 90%;
+    width: 90%;
+    margin: auto;
+}
 
-    /* Nav Item */
+#categoryModal .modal-content{
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: none;
+}
 
-    .nav-item-custom{
-      width:25%;
-      text-align:center;
-      text-decoration:none;
-      color:#666;
-      padding:8px 0;
-      border-radius:22px;
-      transition:0.25s;
-    }
+/* Header */
+#categoryModal .modal-header{
+    padding: 12px 16px;
+}
 
-    .nav-item-custom i{
-      font-size:22px;
-      display:block;
-      margin-bottom: 0px;
-    }
+/* Scrollable Body */
+#categoryModal .modal-body{
+    overflow-y: auto;
+    padding: 15px;
+}
 
-    .nav-item-custom span{
-      font-size:12px;
-      font-weight:600; margin-bottom: 2px;
-    }
+/* Category Grid */
+#categoryModal .d-grid{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+}
 
-    /* Active Item */
+/* Category Buttons */
+.category-option{
+    height: 45px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
 
-    .nav-item-custom.active{
-      background:#fff4e5;
-      color:#ff9800;
-    }
+/* Scrollbar */
+#categoryModal .modal-body::-webkit-scrollbar{
+    width: 4px;
+}
 
-    /* Hover */
-
-    .nav-item-custom:hover{
-      color:#ff9800;
-      transform:translateY(-2px);
-
-    }
+#categoryModal .modal-body::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 20px;
+}
 
