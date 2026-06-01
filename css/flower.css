@@ -1,11 +1,14 @@
-
+:root {
+    --xp-card-grad: linear-gradient(135deg, #8c68cd, #6f42c1);
+        
+}
 main{
     max-width:430px;
     min-height:100vh;
     margin:auto;
     padding:18px;
 }
-/============= Header =============>
+/============= Header =============/
 header {
     display: flex ;
     justify-content: center ;
@@ -88,7 +91,7 @@ header {
     display:flex;
     align-items:center;
     gap:18px;
-    background:linear-gradient(135deg,#8b5e3c,#b9855c);
+    background: var(--xp-card-grad);
     border-radius:28px;
     padding:22px;
     margin-bottom:24px;
