@@ -50,12 +50,11 @@ header {
         transform: scale(0.97);
     }
 
-    /* Card Dynamic Color Injection via classes map */
-    .explore-card.quiz { background-color: var(--color-quiz); color: var(--white); }
-    .explore-card.battle { background-color: var(--color-battle); color: var(--white); }
-    .explore-card.formula { background-color: var(--color-formula); color: #2d5436; } /* Dark green text for better visibility */
-    .explore-card.bonus { background-color: var(--color-bonus); color: var(--white); }
-
+    .explore-card:nth-child(5n+1){ background-color: var(--color-quiz); }
+    .explore-card:nth-child(5n+2){ background-color: var(--color-battle); }
+    .explore-card:nth-child(5n+3){ background-color: var(--color-formula); }
+    .explore-card:nth-child(5n+4){ background-color: var(--color-bonus); }
+    
     /* Card Icon design matching Image 2 structure but vibrant */
     .card-icon {
         width: 52px;
