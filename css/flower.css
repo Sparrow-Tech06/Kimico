@@ -3,12 +3,13 @@
     --text-dark: #fff ;
     
     --xp-card-grad: linear-gradient(135deg, #8c68cd, #6f42c1);
-    
+        
+    /* Image 1 Optimized Grid Colors */
     --color-quiz: #7da1e6;       /* Soft Blue (Sum Missing) */
     --color-battle: #b19ffb;     /* Light Purple (Hidden Diff) */
     --color-formula: #9adea6;    /* Soft Green (Factor Hunt) */
     --color-bonus: #f69595;      /* Coral Pink (Divide Path) */
-    
+        
     /* Icon Background (Light transparency) */
     --icon-bg-light: rgba(255, 255, 255, 0.4);        
     --border: #eee ;
@@ -100,10 +101,10 @@ header {
 
 .level-badge {
         background: rgba(255, 255, 255, 0.18);
-        border: 2px solid rgba(255, 255, 255, 0.35);
+        border: 2px solid rgba(255, 255, 255, 0.4);
         transform: rotate(45deg);
-        width: 52px;
-        height: 52px;
+        width: 54px;
+        height: 54px;
         display: flex;
         flex-direction: column;
         align-items: center;
