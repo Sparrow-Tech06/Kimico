@@ -1,4 +1,7 @@
 :root {
+    --white: #ffffff;
+    --text-dark: #2d2d2d;
+    
     --xp-card-grad: linear-gradient(135deg, #8c68cd, #6f42c1);
     
     --color-quiz: #7da1e6;       /* Soft Blue (Sum Missing) */
@@ -30,67 +33,55 @@ header {
 }
 
 /************************************/
-.cards{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-.explore-card{
-    text-decoration:none;
-    background:#fff;
-    border-radius:24px;
-    padding:18px;
-    border: 2px solid #f1ece7;
-   /* box-shadow: 0px 4px 1px 0px #b9855c; */
-    transition:0.2s;
- }
+.cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .explore-card {
+        text-decoration: none;
+        border-radius: 20px;
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease;
+    }
+    .explore-card:active {
+        transform: scale(0.97);
+    }
 
-.explore-card:hover{
-    transform:translateY(-3px);
-}
+    /* Card Dynamic Color Injection via classes map */
+    .explore-card.quiz { background-color: var(--color-quiz); color: var(--white); }
+    .explore-card.battle { background-color: var(--color-battle); color: var(--white); }
+    .explore-card.formula { background-color: var(--color-formula); color: #2d5436; } /* Dark green text for better visibility */
+    .explore-card.bonus { background-color: var(--color-bonus); color: var(--white); }
 
-.card-icon{
-    width:58px;
-    height:58px;
-    border-radius:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    margin-bottom:16px;
-}
+    /* Card Icon design matching Image 2 structure but vibrant */
+    .card-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 12px;
+        background-color: var(--icon-bg-light);
+    }
+    .explore-card.formula .card-icon {
+        background-color: rgba(0, 0, 0, 0.07); /* Darker icon bg for formulas to stand out */
+    }
 
-.quiz{
-    background:#f7efe7;
-    color:#8b5e3c;
-}
-
-.battle{
-    background:#f8ebe3;
-    color:#a05a2c;
-}
-
-.formula{
-    background:#f3ede7;
-    color:#6d4c41;
-}
-
-.bonus{
-    background:#fff4e8;
-    color:#c27b35;
-}
-
-.card-title{
-    font-size:17px;
-    font-weight:600;
-    color:#222;
-}
-
-.card-subtitle{
-    margin-top:4px;
-    color:#7a7a7a;
-    font-size:12px;
-}
+    .card-title {
+        font-size: 17px;
+        font-weight: 700;
+        margin: 0 0 2px 0;
+    }
+    .card-subtitle {
+        font-size: 13px;
+        opacity: 0.9;
+        margin: 0;
+    }
 
 /* ===== XP CARD ===== */
 
@@ -99,38 +90,39 @@ header {
     align-items:center;
     gap:18px;
     background: var(--xp-card-grad);
-    border-radius:28px;
+    border-radius:24px;
     padding:22px;
     margin-bottom:24px;
 }
 
 /* ===== LEVEL BADGE ===== */
 
-.level-badge{
-    width: 80px;
-    height: 80px;
-    flex-shrink:0;
-    background: #4b2c18; color: #fff ;
-    border:3px solid #d6a15c;
-    outline:3px solid #d6a15c;
-    padding: 4px ;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-
-.level-badge i{
-    color:#fff ;
-    font-size:18px;
-    margin-bottom:3px;
-}
-
-.level-badge span{
-    font-size:34px;
-    font-weight:700;
-}
+.level-badge {
+        background: rgba(255, 255, 255, 0.18);
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        transform: rotate(45deg);
+        width: 52px;
+        height: 52px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-right: 20px;
+        flex-shrink: 0;
+    }
+    .level-badge i, .level-badge span {
+        transform: rotate(-45deg);
+    }
+    .level-badge i {
+        font-size: 12px;
+        color: #ffd700; /* Gold crown */
+        margin-bottom: -2px;
+    }
+    .level-badge span {
+        font-weight: 700;
+        font-size: 18px;
+    }
 
 /* ===== XP CONTENT ===== */
 
@@ -138,45 +130,37 @@ header {
     flex:1;
 }
 
-.xp-title{
-    font-size:15px;
-    color:rgba(255,255,255,.8);
-    letter-spacing:1px;
-    margin-bottom:4px;
-}
-
-.xp-value{
-    font-size: 30px;
-    font-weight:800;
-    color:white;
-    line-height:1;
-    margin-bottom:16px;
-}
+.xp-title {
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.8;
+    }
+    .xp-value {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
 
 /* ===== PROGRESS ===== */
 
-.progress-container{
-    width:100%;
-    height:12px;
-    border-radius:50px;
-    background: #eee ;
-    overflow:hidden;
-}
-
-.progress-fill{
-    width:0%;
-    height:100%;
-    border-radius:50px;
-    background: #9FA1FF ;
-    transition:width .5s ease;
-}
-
-/* ===== FOOTER ===== */
-
-.progress-info{
-    display:flex;
-    justify-content:space-between;
-    margin-top:10px;
-    font-size:13px;
-    color:rgba(255,255,255,.9);
-}
+.progress-container {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 10px;
+        height: 10px;
+        width: 100%;
+        overflow: hidden;
+    }
+    .progress-fill {
+        background: var(--white);
+        height: 100%;
+        width: 0%; /* Dynamic */
+        transition: width 0.4s ease;
+    }
+    .progress-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        margin-top: 6px;
+        opacity: 0.85;
+    }
