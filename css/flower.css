@@ -1,6 +1,13 @@
 :root {
     --xp-card-grad: linear-gradient(135deg, #8c68cd, #6f42c1);
-        
+    
+    --color-quiz: #7da1e6;       /* Soft Blue (Sum Missing) */
+    --color-battle: #b19ffb;     /* Light Purple (Hidden Diff) */
+    --color-formula: #9adea6;    /* Soft Green (Factor Hunt) */
+    --color-bonus: #f69595;      /* Coral Pink (Divide Path) */
+    
+    /* Icon Background (Light transparency) */
+    --icon-bg-light: rgba(255, 255, 255, 0.25);        
 }
 main{
     max-width:430px;
