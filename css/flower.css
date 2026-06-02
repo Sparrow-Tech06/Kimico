@@ -70,9 +70,6 @@ header {
         background-color: var(--icon-bg-light);
         backdrop-filter: blur(10px);
     }
-    .explore-card.formula .card-icon {
-        background-color: rgba(0, 0, 0, 0.07); /* Darker icon bg for formulas to stand out */
-    }
 
     .card-title {
         font-size: 17px;
@@ -123,7 +120,7 @@ header {
     }
     .level-badge span {
         font-weight: 700;
-        font-size: 18px;
+        font-size: 28px;
     }
 
 /* ===== XP CONTENT ===== */
@@ -165,4 +162,5 @@ header {
         font-size: 12px;
         margin-top: 6px;
         opacity: 0.85;
+        color: #fff ;
     }
