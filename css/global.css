@@ -61,8 +61,8 @@ header {
   display:flex;
   align-items:center;
   gap:10px;
-  height: 70px ;  z-index: 99;
-  max-height: 70px ;
+  height: 66px ;  z-index: 99;
+  max-height: 66px ;
 }
 .back-btn{
   width: 42px;
